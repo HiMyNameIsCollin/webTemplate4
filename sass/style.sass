@@ -3,9 +3,10 @@
 	margin: 0
 	padding: 0
 	overflow-x: hidden
-html
-	height: 100%
-	width: 100%
+	font-family: 'Calibri', sans-serif
+	font-weight: 700
+
+
 .banner
 	height: 100vh
 	min-height: 100vh
@@ -15,8 +16,11 @@ html
 		background-size: cover
 		background-position: 50% 100%
 		position: absolute
+		h1
+			display: none
 		&:nth-of-type(1)
-			background-image: url('../assets/toronto1sm.jpg')
+			background-image: url('../assets/toronto5sm.jpg')
+			background-position: 45% 50%
 			top: 0
 			left: 0
 			height: 33%
@@ -40,10 +44,26 @@ html
 			top: 66%
 			left: 0
 			width: 100%
+		&:nth-of-type(5)
+			background-image: url('../assets/toronto1sm.jpg')
+			background-position: 45% 87%
+			background-size: 150%
+			border: solid black 2px
+			border-left: none
+			border-right: none
+			height: 7.5%
+			top: calc((100% - 7.5%) / 2)
+			left: 0
+			width: 100%
+			z-index: 2
+			&.active
+				transition: .25s all linear
+				background-position: 45% 50%
+				background-size: cover
 	@media only screen and (min-width: 640px)
 		div 
 			&:nth-of-type(1)
-				background-image: url('../assets/toronto1lrg.jpg')
+				background-image: url('../assets/toronto5lrg.jpg')
 				top: 0
 				left: 0
 				height: 50% 
@@ -66,3 +86,37 @@ html
 				left: 50%
 				height: 50% 
 				width: 50%
+			&:nth-of-type(5)
+				background-image: url('../assets/toronto1lrg.jpg')
+				background-position: 39% 100%
+				height: 33%
+				top: 33%
+				left: calc((100% - 25%) /2)
+				width: 25%
+				&.active
+					transition: .25s all linear
+					background-position: 45% 100%
+					background-size: 100%
+
+
+.active
+	position: relative
+	overflow: hidden
+	&::before
+		background: white
+		content: ''
+		height: 100%
+		left: 0 
+		top: 0
+		opacity: 0
+		position: absolute
+		width: 100%
+		z-index: -1
+	h1
+		border: solid black 2px
+		border-left: 0
+		border-right: 0
+		padding: 1rem 
+		margin-top: 1rem
+		display: block !important
+
