@@ -1,34 +1,32 @@
-const handleBanner = (e) => {
-	const closeBanner = (e) => {
-		tl.reverse()
-		e.target.removeEventListener('click', closeBanner)
-		e.target.addEventListener('click', handleBanner)
-		setTimeout(() => {
-			gsap.set('.active, .inactive', {clearProps: 'all'})
-			Array.from(document.querySelectorAll('div')).forEach(ele => {
-				if(e.target === ele){
-					ele.classList.toggle('active')
-				} else {
-					ele.classList.toggle('inactive')
-				}			
-			})
-		},600)
-
-	}
-	Array.from(document.querySelectorAll('div')).forEach( ele => {
-		if(e.target === ele){
-			ele.classList.toggle('active')
-		} else {
-			ele.classList.toggle('inactive')
-		}
-	})
-	const tl = gsap.timeline()
-	const activeBefore = CSSRulePlugin.getRule('.active::before')
-	tl.to('.inactive', {height: '0%', opacity: 0, top: '+50%', duration: .75, ease: Circ.easeIn})
-	tl.to('.active', {height: '100%', width: '100%', left: '0', top: '0', zIndex: 3 ,duration: .25, ease: Circ.easeIn}, '-=.25')
-	tl.fromTo(activeBefore , {opacity: 0}, {opacity: '.7', duration: .5, ease: Circ.easeIn}, '-=.5')
-	e.target.addEventListener('click', closeBanner)
-	e.target.removeEventListener('click', handleBanner)
+const setHeight = () => {
+	let vh = window.innerHeight * 0.01
+	document.documentElement.style.setProperty('--vh', vh + 'px')
 }
+setHeight()
+window.onresize = setHeight
 
-Array.from(document.querySelectorAll('div')).forEach(ele => ele.addEventListener('click', handleBanner))
+
+/*########## MAP #######################################################3*/
+const openMap = (e) => {
+	const closeMap = () => {
+		tl.reverse()
+		showInfoNode.removeEventListener('click', closeMap)
+		setTimeout(() => {
+			document.querySelector('.map').removeChild(showInfoNode)
+		},500)
+	}
+	e.preventDefault()
+	const showInfoNode = document.createElement('A')
+	showInfoNode.classList.add('map__showInfoBtn')
+	showInfoNode.innerHTML = '<i class="fas fa-info-circle"></i> Show info'
+	showInfoNode.addEventListener('click', closeMap)
+	document.querySelector('.map').appendChild(showInfoNode)
+	const tl = gsap.timeline()
+	const rule = CSSRulePlugin.getRule('.addressPanel::before')
+	tl.to(rule, {opacity: 0, duration: .25})
+	.to('.addressPanel__group', {opacity: 0, duration: .25}, '-=.25')
+	.to('.map', {zIndex: 3, duration: .25})
+	.fromTo('.map__showInfoBtn', { y: '-100%'}, {y: '0%', duration: .5, ease: Circ.easeOut})
+
+}
+document.querySelector('.addressPanel__btn').addEventListener('click', openMap)

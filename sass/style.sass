@@ -1,122 +1,299 @@
+\:root
+	--vh: 0
+	--image1: url('../assets/toronto1lrg.jpg')
+	--image2: url('../assets/toronto7lrg.jpg')
+	--image3: url('../assets/toronto6lrg.jpg')
+	--image4: url('../assets/toronto5lrg.jpg')
+	--image5: url('../assets/toronto4lrg.jpg')
+
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Josefin+Sans:wght@400;700&family=Lemonada:wght@400;700&display=swap')
+@mixin backgroundImage
+	background-position: center 25%
+	background-size: cover
+
+@mixin overlay
+	position: relative
+	overflow: hidden
+	z-index: 1
+	&::before
+		content: ''
+		top: 0%
+		left: 0%
+		opacity: 0.7
+		position: absolute
+		height: 100%
+		width: 100%
+		z-index: -1
+@mixin overlay1
+	@include overlay
+	&::before
+		background: salmon
+
 *
 	box-sizing: border-box
+	line-height: 1.5
 	margin: 0
 	padding: 0
 	overflow-x: hidden
-	font-family: 'Calibri', sans-serif
+
+body
+	font-family: 'Caveat', cursive
+	font-family: 'Lemonada', cursive
+	font-family: 'Josefin Sans', sans-serif
+a
+	color: inherit
+	text-decoration: none
+
+.wrapper
+	@include backgroundImage
+	background-image: var(--image3)
+	background-attachment: fixed
+	display: flex
+	flex-wrap: wrap
+	justify-content: center
+.intro
+	color: white
+	font-family: 'Caveat', cursive
 	font-weight: 700
-
-
-.banner
-	height: 100vh
-	min-height: 100vh
-	max-height: 100vh
-	max-width: 100vw
-	div
-		background-size: cover
-		background-position: 50% 100%
-		position: absolute
-		h1
-			display: none
-		&:nth-of-type(1)
-			background-image: url('../assets/toronto5sm.jpg')
-			background-position: 45% 50%
-			top: 0
-			left: 0
-			height: 33%
-			width: 100%
-		&:nth-of-type(2)
-			background-image: url('../assets/toronto2sm.jpg')
-			background-position: 50% 0
-			height: 33%
-			top: 33%
-			left: 0
-			width: 50%
-		&:nth-of-type(3)
-			background-image: url('../assets/toronto3sm.jpg')
-			height: 33%
-			top: 33%
-			left: 50%
-			width: 50%
-		&:nth-of-type(4)
-			background-image: url('../assets/toronto4sm.jpg')
-			height: 33%
-			top: 66%
-			left: 0
-			width: 100%
-		&:nth-of-type(5)
-			background-image: url('../assets/toronto1sm.jpg')
-			background-position: 45% 87%
-			background-size: 150%
-			border: solid black 2px
-			border-left: none
-			border-right: none
-			height: 7.5%
-			top: calc((100% - 7.5%) / 2)
-			left: 0
-			width: 100%
-			z-index: 2
-			&.active
-				transition: .25s all linear
-				background-position: 45% 50%
-				background-size: cover
-	@media only screen and (min-width: 640px)
-		div 
-			&:nth-of-type(1)
-				background-image: url('../assets/toronto5lrg.jpg')
-				top: 0
-				left: 0
-				height: 50% 
-				width: 50%
-			&:nth-of-type(2)
-				background-image: url('../assets/toronto2lrg.jpg')
-				top: 0
-				left: 50%
-				height: 50% 
-				width: 50%
-			&:nth-of-type(3)
-				background-image: url('../assets/toronto3lrg.jpg')
-				top: 50%
-				left: 0
-				height: 50% 
-				width: 50%
-			&:nth-of-type(4)
-				background-image: url('../assets/toronto4lrg.jpg')
-				top: 50%
-				left: 50%
-				height: 50% 
-				width: 50%
-			&:nth-of-type(5)
-				background-image: url('../assets/toronto1lrg.jpg')
-				background-position: 39% 100%
-				height: 33%
-				top: 33%
-				left: calc((100% - 25%) /2)
-				width: 25%
-				&.active
-					transition: .25s all linear
-					background-position: 45% 100%
-					background-size: 100%
-
-
-.active
-	position: relative
+	font-size: 2.5rem
+	margin: 6rem 0
+	text-align: center
 	overflow: hidden
+	position: relative
+	z-index: 1
 	&::before
-		background: white
+		background: radial-gradient( rgba(0, 0, 0, 1) 50% , rgba(0, 0, 0, .5) 60%,rgba(0, 0, 0, 0)60%, rgba(0, 0, 0, 0) 100%)
 		content: ''
-		height: 100%
-		left: 0 
-		top: 0
-		opacity: 0
 		position: absolute
+		top: 0
+		left: 0
+		height: 105%
+		opacity: .7
 		width: 100%
 		z-index: -1
-	h1
-		border: solid black 2px
-		border-left: 0
-		border-right: 0
-		padding: 1rem 
-		margin-top: 1rem
-		display: block !important
+	&__line1
+		align-items: center
+		justify-content: space-around
+		display: flex
+		margin: 1rem 0 0 0
+		span
+			padding: 0 1rem
+	&__line2
+		display: flex
+		padding: 1rem 1rem 3rem 1rem
+		font-family: 'Lemonada', cursive
+		font-size: 2.5rem
+		font-weight: 700
+		overflow: hidden
+		span
+			display: block
+			letter-spacing: 2px
+			overflow: hidden
+			&:nth-of-type(1)
+				transform: translateY(3rem) rotate(-35deg) translateX(-3px)
+			&:nth-of-type(2)
+				transform: translateY(1.5rem) rotate(-25deg) translateX(-7px)
+			&:nth-of-type(3)
+				transform: translateY(.5rem) rotate(-15deg) translateX(-5px)
+			&:nth-of-type(4)
+				transform: rotate(-5deg) translateX(-1px)
+			&:nth-of-type(5)
+				transform: rotate(5deg) translateX(1px)
+			&:nth-of-type(6)
+				transform: translateY(.5rem) rotate(15deg) translateX(5px)
+			&:nth-of-type(7)
+				transform: translateY(1.7rem) rotate(25deg) translateX(2px)
+			&:nth-of-type(8)
+				transform: translateY(3.45rem) rotate(35deg) translateX(-3px)
+	&__line3
+		align-items: center
+		justify-content: space-around
+		display: flex
+		span
+			padding: 0 1rem
+	@media only screen and (min-width: 376px)
+		&__line2
+			font-size: 3rem
+	@media only screen and (min-width: 576px)
+		&__line2
+			font-size: 4rem
+			padding: 1rem 3rem 3rem 3rem
 
+.content
+	padding: 0 1rem
+	width: 100%
+	@media only screen and (min-width: 576px)
+		padding: 0 2rem
+	@media only screen and (min-width: 776px)
+		padding: 0 4rem
+
+.panel
+	background: white
+	display: flex
+	flex-direction: column
+	position: relative
+	&__text
+		display: flex
+		flex-direction: column
+		width: 100%
+		padding: 2rem 1rem
+		order: 2
+		h1
+			font-size: 3rem
+			font-weight: 400
+			margin: 1rem 0
+		p
+			max-width: 60ch
+		a
+			align-items: center
+			border: solid black 1px
+			display: flex
+			margin: 1rem auto 1rem 0
+			font-size: 1.5rem
+			font-weight: 700
+			padding: 1rem 2rem
+			i
+				padding: 0 0 0 1rem 
+	&__img
+		min-height: calc((var(--vh), 1vh) * 50)
+		position: relative
+		width: 100%
+		order: 1
+		img
+			position: absolute
+			top: 0
+			left: 0
+			object-fit: cover
+			height: 100%
+			width: 100%
+			max-width: 100%
+	@media only screen and (min-width: 576px)
+		flex-direction: row
+		&__text
+			padding: 2rem
+			width: 60%
+			&--alt
+				order: 1
+				a
+					margin: 1rem 0 1rem auto
+		&__img
+			min-height: auto
+			width: 40%
+			&--alt
+				order: 2
+	@media only screen and (min-width: 776px)
+		&__text
+			padding: 4rem 6rem
+
+
+.nav
+	color: white
+	display: flex
+	flex-wrap: wrap
+	font-family: 'Josefin Sans', sans-serif
+	font-weight: 700
+	position: relative
+	overflow: hidden
+	width: 100%
+	z-index: 1
+	&__link
+		letter-spacing: 2px
+		padding: 2rem 3rem
+		text-align: center
+		width: 50%
+		&--active
+			color: #555
+			position: relative
+			overflow: hidden
+			z-index: 1
+			&::before
+				background: white
+				content: ''
+				opacity: 0.9
+				top: 0
+				left: 0
+				height: 100%
+				width: 100%
+				position: absolute
+				z-index: -1
+	&::before
+		background: #555
+		content: ''
+		opacity: 0.7
+		position: absolute
+		top: 0
+		left: 0
+		height: 100%
+		width: 100%
+		z-index: -1
+	@media only screen and (min-width: 776px)
+		&__link
+			width: auto
+
+
+.addressPanel
+	align-items: center
+	color: white
+	display: flex
+	flex-direction: column
+	flex-wrap: wrap
+	justify-content: space-between
+	padding: 2rem 1rem 2rem 1rem
+	position: relative
+	overflow: hidden
+	z-index: 1
+	&::before
+		background: black
+		content: ''
+		height: 100%
+		left: 0
+		position: absolute
+		top: 0
+		opacity: 0.9
+		width: 100%
+		z-index: -1
+	&__group
+		padding: 0 2rem 
+		border-left: solid 2px #333
+		text-transform: capitalize
+		width: 100%
+		margin-bottom: 1rem
+		span
+			border-bottom: solid white 2px
+		p
+			color: #333
+	&__btn
+		align-items: center
+		display: flex
+		margin: 2rem auto 2rem 0
+		padding: 1rem 2rem
+		i
+			padding: 0 1rem 0 0 
+	@media only screen and (min-width: 576px)
+		flex-direction: row
+		padding: 2rem 2rem 2rem 2rem
+		&__group
+			width: 50%
+	@media only screen and (min-width: 776px)
+		padding: 4rem
+
+.map
+	position: absolute
+	top: 0
+	left: 0
+	height: 100%
+	width: 100%
+	z-index: -2
+	&__showInfoBtn
+		align-items: center
+		background: white
+		color: black
+		display: flex
+		padding: 1rem 2rem
+		position: absolute
+		top: 0
+		left: calc((100% - 9rem) /2)
+		i
+			padding-right: 1rem
+	&--active
+		z-index: 2
