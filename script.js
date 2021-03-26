@@ -37,14 +37,14 @@ document.querySelector('.addressPanel__btn').addEventListener('click', openMap)
 const beginMobileCardTransition = (e) => {
 	e.stopPropagation()
 	e.target.classList.add(e.target.classList[0] + '--active')
-	window.addEventListener('mousedown', endMobileCardTransition)	
+	window.addEventListener('touchstart', endMobileCardTransition)	
 }
 
 const endMobileCardTransition = (e) => {
 	const className = 'gallery__card--active'
 	if(!e.target.classList.contains(className) || !e.target.parentElement.classList.contains(className)){
 		Array.from(document.querySelectorAll(`.${className}`)).map(ele => ele.classList.remove(className))
-		window.removeEventListener('mousedown', endMobileCardTransition)
+		window.removeEventListener('touchstart', endMobileCardTransition)
 	}
 }
 
