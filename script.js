@@ -43,7 +43,7 @@ const beginMobileCardTransition = (e) => {
 const endMobileCardTransition = (e) => {
 	const className = 'gallery__card--active'
 	if(!e.target.classList.contains(className) || !e.target.parentElement.classList.contains(className)){
-		document.querySelector(`.${className}`).classList.remove(className)
+		document.querySelectorAll(`.${className}`).classList.remove(className)
 	}
 }
 

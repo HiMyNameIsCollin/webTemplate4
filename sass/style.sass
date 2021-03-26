@@ -56,13 +56,16 @@ a
 .wrapper
 	@include backgroundImage
 	background-image: var(--image3)
-	background-attachment: fixed
+	background-attachment: scroll
+	background-size: 100%
+	background-position: 0% 0%
 	display: flex
 	flex-wrap: wrap
 	justify-content: center
 	padding: 0 1rem 2rem 1rem
 	width: 100%
 	@media only screen and (min-width: 576px)
+		background-attachment: fixed
 		padding: 0 2rem 2rem 2rem
 	@media only screen and (min-width: 776px)
 		padding: 0 4rem 4rem 4rem
