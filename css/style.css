@@ -37,7 +37,6 @@ a {
 }
 @media only screen and (min-width: 576px) {
   .wrapper {
-    background-attachment: fixed;
     padding: 0 2rem 2rem 2rem;
   }
 }
@@ -46,7 +45,7 @@ a {
     padding: 0 4rem 4rem 4rem;
   }
 }
-@media only screen and (min-width: 2200px) {
+@media only screen and (min-width: 1900px) {
   .wrapper {
     align-items: center;
     flex-direction: column;
@@ -248,7 +247,7 @@ a {
   max-width: 100%;
 }
 .panel__img--full {
-  min-height: calc((var(--vh), 1vh) * 100) !important;
+  min-height: calc((var(--vh), 1vh) * 50) !important;
   width: 100% !important;
 }
 .panel--full {
@@ -278,6 +277,9 @@ a {
   }
   .panel__img--alt {
     order: 2;
+  }
+  .panel__img--full {
+    min-height: calc((var(--vh), 1vh) * 75) !important;
   }
 }
 @media only screen and (min-width: 776px) {
