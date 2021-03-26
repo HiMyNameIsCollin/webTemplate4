@@ -23,7 +23,7 @@ const openMap = (e) => {
 	document.querySelector('.map').appendChild(showInfoNode)
 	const tl = gsap.timeline()
 	const rule = CSSRulePlugin.getRule('.addressPanel::before')
-	tl.to(rule, {opacity: 0, duration: .25})
+	tl.fromTo(rule,{opacity: .9}, {opacity: 0, duration: .25})
 	.to('.addressPanel__group', {opacity: 0, duration: .25}, '-=.25')
 	.to('.map', {zIndex: 3, duration: .25})
 	.fromTo('.map__showInfoBtn', { y: '-100%'}, {y: '0%', duration: .5, ease: Circ.easeOut})
@@ -37,13 +37,14 @@ document.querySelector('.addressPanel__btn').addEventListener('click', openMap)
 const beginMobileCardTransition = (e) => {
 	e.stopPropagation()
 	e.target.classList.add(e.target.classList[0] + '--active')
-	window.addEventListener('click', endMobileCardTransition)	
+	window.addEventListener('mousedown', endMobileCardTransition)	
 }
 
 const endMobileCardTransition = (e) => {
 	const className = 'gallery__card--active'
 	if(!e.target.classList.contains(className) || !e.target.parentElement.classList.contains(className)){
-		document.querySelectorAll(`.${className}`).classList.remove(className)
+		Array.from(document.querySelectorAll(`.${className}`)).map(ele => ele.classList.remove(className))
+		window.removeEventListener('mousedown', endMobileCardTransition)
 	}
 }
 
@@ -80,7 +81,7 @@ const enlargeImage = (e) => {
 
 class GalleryCard{
 	constructor(element){
-		element.querySelector('a').addEventListener('click', enlargeImage)
+		element.querySelector('a').addEventListener('mousedown', enlargeImage)
 		if(window.innerWidth > 1200){
 			element.addEventListener('mouseenter', beginDeskCardTransition)
 		} else {

@@ -1,10 +1,6 @@
 \:root
 	--vh: 0
-	--image1: url('../assets/toronto1lrg.jpg')
-	--image2: url('../assets/toronto7lrg.jpg')
-	--image3: url('../assets/toronto6lrg.jpg')
-	--image4: url('../assets/toronto5lrg.jpg')
-	--image5: url('../assets/toronto4lrg.jpg')
+
 
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Josefin+Sans:wght@400;700&family=Lemonada:wght@400;700&display=swap')
 @mixin backgroundImage
@@ -257,6 +253,7 @@ a
 		flex-direction: column
 		width: 100%
 		input, textarea
+			padding: .5rem 1rem
 			width: 100%
 		&:nth-of-type(5)
 			font-size: .8rem
@@ -268,7 +265,7 @@ a
 				display: block
 				margin-left: auto
 				padding-left: 1rem
-			button
+			input[type=submit]
 				display: block
 				margin: 1rem auto
 				padding: 1rem 2rem
@@ -370,11 +367,15 @@ a
 	flex-wrap: wrap
 	justify-content: space-between
 	padding: 2rem 1rem 2rem 1rem
+	z-index: 2
+	&::before
+		z-index: 1
 	&__group
 		padding: 0 2rem 
 		border-left: solid 2px #333
 		width: 100%
 		margin-bottom: 1rem
+		z-index: 2
 		span
 			border-bottom: solid white 2px
 		p
@@ -384,6 +385,7 @@ a
 		display: flex
 		margin: 2rem auto 2rem 0
 		padding: 1rem 2rem
+		z-index: 2
 		i
 			padding: 0 1rem 0 0 
 	@media only screen and (min-width: 576px)
