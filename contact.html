@@ -37,42 +37,45 @@
 			<header>
 				<nav class='nav'>
 					<a class='nav__link ' href="index.html">Home</a>
-					<a class='nav__link nav__link--active' href="single.html">Single</a>
+					<a class='nav__link' href="single.html">Single</a>
 					<a class='nav__link' href="gallery.html">Gallery</a>
-					<a class='nav__link' href="contact.html">Contact</a>
+					<a class='nav__link  nav__link--active' href="contact.html">Contact</a>
 				</nav>
 			</header>
 
-			<article class='panel panel--full'>
-				<div class='panel__img panel__img--full'>
-					<img src="https://source.unsplash.com/random">
-				</div>
+			<section class='contact panel panel--full'>
 				<div class='panel__text panel__text--full'>
-					<h1>Some intriguing post title</h1>
-					<div class='panel__meta'>
-						<span>By <a href="#"> BUSINESS</a></span>
-						<span>March 26, 2021</span>
-						<span>0 Comments</span>
-					</div>
-					<p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas eaque ad eos, explicabo consectetur unde. Laborum, est, quo officiis aspernatur sed eius iste quod aliquid nesciunt maiores mollitia impedit ea officia nulla facere minus ullam voluptatem odit fugit exercitationem repudiandae ipsa! Saepe, minus, dolores beatae amet deleniti reprehenderit nostrum molestias. Dicta at dolor, explicabo. Quisquam possimus voluptatum esse id optio quibusdam est provident sapiente, ipsam nostrum fugiat illo ipsa. Quaerat atque aperiam ab id amet.</p>
-					<blockquote class='panel__quote'> 
-						<p>Consectetur adipisicing elit. Dolore quos voluptate consequuntur cum, voluptatum ratione vitae tenetur ab, neque est sapiente inventore voluptas ad reiciendis.</p>
-					</blockquote>
-					<p>
-						Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum quo sint natus, ipsa at perspiciatis maxime voluptate error iusto iure, suscipit enim ad repellat accusamus recusandae, quae quas assumenda minima dolor dolorem ex facere laborum, consectetur? Facilis quia exercitationem dolor!
-					</p>
-					<h2> Coolio sub heading</h2>
-					<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti vitae fugit quasi, expedita commodi facilis eaque saepe facere esse obcaecati ducimus magnam voluptas dicta id.</p>
-					<ul>
-						<li>Lorem</li>
-						<li>Ipsum</li>
-						<li>Dolar</li>
-					</ul>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing, elit. Eveniet labore nesciunt culpa, recusandae saepe facere vero hic officia dolorem, distinctio cumque fugiat alias aliquid omnis, impedit laboriosam cum, mollitia ullam! Quibusdam doloribus impedit officia nam. A doloremque sapiente quidem veritatis minima laborum dolorum architecto, accusantium non molestias asperiores, tempora repellat!</p>
-					<code> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad dicta quidem sint consequatur deserunt sapiente vero fugit aliquid laudantium voluptate.</code>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat animi, dicta adipisci! Placeat libero nesciunt magni dolorem quisquam, beatae explicabo.</p>
+					<h1> Contact us</h1>
 				</div>
-			</article>
+
+				<form class='form panel__text panel__text--full'>
+					<div class='form__group'>
+						<label for='name'> Full name *</label>
+						<input type='text' name='name'>
+					</div>
+					<div class='form__group'>
+						<label for='email'>Email * </label>
+						<input type='email' name='email'>
+					</div>
+					<div class='form__group'>
+						<label for='phone'>Phone </label>
+						<input type='phone' name='phone'>
+					</div>
+					<div class='form__group'>
+						<label for='message'>Message * </label>
+						<textarea rows='4' name='message'></textarea>
+					</div>
+					<div class='form__group'>
+						<div>
+							<input type="radio" name="subscribe">
+							<label for="subscribe">I would like to subscribe to the YOUR NAME mailing list. Notify me about all things YOUR NAME</label>							
+						</div>
+						<button><i class="far fa-envelope"></i> Send </button>
+					</div>
+				</form>
+
+			</section>
+
 			<address class='addressPanel'>
 				<div class='addressPanel__group'>
 					<span>ADDRESS</span>

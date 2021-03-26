@@ -30,3 +30,64 @@ const openMap = (e) => {
 
 }
 document.querySelector('.addressPanel__btn').addEventListener('click', openMap)
+
+
+/*####### GALLERY CARD ANIMATION########################################################*/
+
+const beginMobileCardTransition = (e) => {
+	e.stopPropagation()
+	e.target.classList.add(e.target.classList[0] + '--active')
+	window.addEventListener('click', endMobileCardTransition)	
+}
+
+const endMobileCardTransition = (e) => {
+	const className = 'gallery__card--active'
+	if(!e.target.classList.contains(className) || !e.target.parentElement.classList.contains(className)){
+		document.querySelector(`.${className}`).classList.remove(className)
+	}
+}
+
+const beginDeskCardTransition = (e) => {
+	e.stopPropagation()
+	e.target.classList.add(e.target.classList[0] + '--active')
+	e.target.addEventListener('mouseleave', endDeskCardTransition)
+}
+
+const endDeskCardTransition = (e) => {
+	e.target.classList.remove(e.target.classList[0] + '--active')
+	e.target.removeEventListener('mouseleave', endDeskCardTransition)
+}
+
+/*##########GALLERY ENLARGE###############################*/
+
+const enlargeImage = (e) => {
+	e.preventDefault()
+	const image = e.target.parentElement.querySelector('img')
+	const figureNode = document.createElement('FIGURE')
+	const sectionNode = document.createElement('SECTION')
+	const imgNode = document.createElement('IMG')
+	const closeNode = document.createElement('SPAN')
+	sectionNode.classList.add('fullImage')
+	sectionNode.appendChild(figureNode)
+	sectionNode.appendChild(closeNode)
+	figureNode.appendChild(imgNode)
+	closeNode.innerHTML = `<i class="far fa-times-circle"></i>`
+	imgNode.outerHTML = `<img src='${image.src}' alt='${image.src}'/>`
+	document.querySelector('body').appendChild(sectionNode)
+	closeNode.addEventListener('click', () => document.querySelector('body').removeChild(sectionNode) )
+}
+
+
+class GalleryCard{
+	constructor(element){
+		element.querySelector('a').addEventListener('click', enlargeImage)
+		if(window.innerWidth > 1200){
+			element.addEventListener('mouseenter', beginDeskCardTransition)
+		} else {
+			element.addEventListener('click', beginMobileCardTransition)
+		}
+		
+	}
+}
+
+Array.from(document.querySelectorAll('.gallery__card')).map(ele => new GalleryCard(ele))
