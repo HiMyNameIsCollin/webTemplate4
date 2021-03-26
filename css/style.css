@@ -30,7 +30,7 @@ a {
 .wrapper {
   background-position: center 25%;
   background-size: cover;
-  background-image: var(--image3);
+  background-image: url("../assets/toronto6lrg.jpg");
   background-attachment: scroll;
   background-size: 100%;
   background-position: 0% 0%;
