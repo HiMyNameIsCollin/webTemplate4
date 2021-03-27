@@ -41,10 +41,14 @@ const beginMobileCardTransition = (e) => {
 }
 
 const endMobileCardTransition = (e) => {
+	e.stopPropagation()
 	const className = 'gallery__card--active'
-	if(!e.target.classList.contains(className) || !e.target.parentElement.classList.contains(className)){
-		Array.from(document.querySelectorAll(`.${className}`)).map(ele => ele.classList.remove(className))
-		window.removeEventListener('touchstart', endMobileCardTransition)
+	if(!e.target.classList.contains(className)){
+		if(!e.target.classList.contains('gallery__card__btn')){
+			Array.from(document.querySelectorAll(`.${className}`)).map(ele => ele.classList.remove(className))
+			window.removeEventListener('touchstart', endMobileCardTransition)			
+		}
+
 	}
 }
 
